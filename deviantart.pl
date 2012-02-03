@@ -28,7 +28,7 @@ get '/auth/deviantart/callback' => sub {
         Content_Type => 'form-data',
         Content      => [title => 'Perl Fella', file => ['./fella.png']];
     
-    my $response = $access_token->post('/api/draft15/submit', $request->headers, $request->content);
+    my $response = $access_token->post('/api/draft15/stash/submit', $request->headers, $request->content);
     
     if ($response->is_success) {
         return "Great success: " . $response->decoded_content;
